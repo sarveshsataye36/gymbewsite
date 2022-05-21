@@ -9,37 +9,13 @@
   Created: 12-May-2022
 ******************************************************************/
 
-/*------------------------------------------------------------------
-[Table of contents]
-
-1.  Template default CSS
-	1.1	Variables
-	1.2	Mixins
-	1.3	Flexbox
-	1.4	Reset
-2.  Helper Css
-3.  Header Section
-4.  Hero Section
-5.  Service Section
-6.  Class Section
-7.  Price Plan Section
-8.  Trainer Section
-9.  Contact
-10.  Footer Style
-
--------------------------------------------------------------------*/
-
-/*----------------------------------------*/
-
-/* Template default CSS
-/*----------------------------------------*/
-
 html,
 body {
 	height: 100%;
-	font-family: "Muli", sans-serif;
+	font-family: Arial,Helvetica,sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
+	background-color: #ffc98e8f;
 }
 
 h1,
@@ -51,7 +27,7 @@ h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Oswald", sans-serif;
+	font-family: Arial,Helvetica,sans-serif;
 }
 
 h1 {
@@ -80,7 +56,7 @@ h6 {
 
 p {
 	font-size: 14px;
-	font-family: "Muli", sans-serif;
+	font-family: Arial,Helvetica,sans-serif;
 	color: #a9a9a9;
 	font-weight: 400;
 	line-height: 24px;
@@ -114,6 +90,460 @@ ol {
 /*---------------------
   Helper CSS
 -----------------------*/
+/* Start code for smoothscroll behaviour author@ Sarvesh 20May2022*/
+*{
+	scroll-behavior: smooth;
+}
+/* End code for smoothscroll behaviour author@ Sarvesh 20May2022*/
 .cursor-pointer{
 	cursor: pointer;
 }
+a{
+	text-decoration: none;
+	color: #fff;
+}
+
+header{
+	width: 100%;
+	height: auto;
+	background: linear-gradient(to bottom, rgb(187 187 187 / 22%), rgb(32 22 22 / 44%)), url("../image/bannermain.jpg") center no-repeat;
+	background-size: cover;
+	position: relative;
+  overflow: hidden;
+}
+
+.container{
+	max-width: 120rem;
+	/*max-width: 60rem;*/
+	width: 90%;
+	margin: 0 auto;
+}
+
+.menu-toggle{
+	position: fixed;
+	top: 2.5rem;
+	right: 2.5rem;
+	color: #eeeeee;
+	font-size: 30px;
+	cursor: pointer;
+	z-index: 1000;
+	display: none;
+}
+
+nav{
+	padding-top: 5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+.brand{
+	font-size: 3rem;
+	font-weight: 300;
+	transform: translateX(-100rem);
+	animation: slideIn .5s forwards;
+}
+
+.brand span{
+	color: crimson;
+}
+
+nav ul{
+	display: flex;
+}
+
+nav ul li{
+	list-style: none;
+	transform: translateX(100rem);
+	animation: slideIn .5s forwards;
+}
+
+nav ul li:nth-child(1){
+	animation-delay: 0s;
+}
+
+nav ul li:nth-child(2){
+	animation-delay: .5s;
+}
+
+nav ul li:nth-child(3){
+	animation-delay: 1s;
+}
+
+nav ul li:nth-child(4){
+	animation-delay: 1.5s;
+}
+
+nav ul li a{
+	padding: 1rem 0;
+	margin: 0 3rem;
+	position: relative;
+	letter-spacing: 2px;
+}
+
+nav ul li a:last-child{
+	margin-right: 0;
+}
+
+nav ul li a::before,
+nav ul li a::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: crimson;
+	left: 0;
+	transform: scaleX(0);
+	transition: all .5s;
+}
+
+nav ul li a::before{
+	top: 0;
+	transform-origin: left;
+}
+
+nav ul li a::after{
+	bottom: 0;
+	transform-origin: right;
+}
+
+.overlay{
+	background-color: rgba(159,159,159,.95);
+	position: fixed;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	transition: opacity 650ms;
+	transform: scale(0);
+	opacity: 0;
+  display: none;
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after{
+	transform: scaleX(1);
+}
+
+@keyframes slideIn {
+	from{
+
+	}
+	to{
+		transform: translateX(0);
+	}
+}
+
+@media screen and (max-width: 700px){
+
+	.menu-toggle{
+		display: block;
+	}
+	.menu_toggle_logo{
+		display: none;
+	}
+
+	nav{
+		padding-top: 0;
+		display: none;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		height: 60vh;
+		text-align: center;
+	}
+
+	nav ul{
+		flex-direction: column;
+	}
+
+	nav ul li{
+		margin-top: 1rem;
+	}
+
+	nav ul li a{
+		margin: 0;
+		font-size: 30px;
+	}
+
+	.brand{
+		font-size: 5rem;
+	}
+  
+  .overlay.menu-open,
+  nav.menu-open{
+	  display: flex;
+	  transform: scale(1);
+	  /*opacity: 1;*/ /*hide yuvraj for open togalle menu mobile view */ 
+	  /* css start by @author sravesh20May2022  */
+	  position: fixed;
+	  z-index: 16;
+	  background-color: #000000cc;
+	  width: 100%;
+	  /* css ended by @author sravesh20May2022  */
+
+  }
+  
+}
+/*###################################################*/
+
+#fulllogo{
+width: 200px;
+height:auto;
+}
+
+/* Category Slider */
+.category-item img {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 50px;
+    box-shadow: 0 0 2px #ccc;
+    margin: 1px 0 8px;
+    padding: 7px;
+    width: 80px;
+	transform: scale(1);
+    transition-duration: 0.4s;
+}
+.category-item:hover img
+{
+	 transform: scale(1.09);
+}
+.category-item {
+    padding: 8px;
+    text-align: center;
+}
+.category-item h6 {
+    font-size: 13px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.top-category {
+    background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid #eeeeee;
+    border-top: 1px solid #eeeeee;
+    margin-bottom: 15px;
+    padding: 14px 0;
+}
+.category-item p {
+    margin: 0;
+}
+.top-category .owl-prev {
+    left: -70px;
+}
+.top-category .owl-next {
+    right: -70px;
+}
+
+
+.category-item img{
+	background:#fff;
+	/*border-radius:50px;*/
+	box-shadow:0 0 2px #ccc;
+	margin:1px 0 8px;
+	padding:7px;
+	width:200px}
+/*######################################################*/
+
+
+/************************** start product select auther @YUVRAJ 18052022******************************/
+
+#container_product_select {
+  /*margin: 40px 0px;*/
+  max-width: 60rem;
+  margin-top: 50px;
+      /*margin-top: 43px;*/
+  /*padding: 40px 0;*/
+  display: grid;
+  grid-template-columns: repeat(1, 260px);
+  grid-auto-rows: auto;
+  /*grid-auto-rows: 560px;*/
+  grid-gap: 80px;
+  /* changes made start by @author sarvesh 21May2022 */
+  align-items: center;
+  justify-content: center;
+  /* changes made end by @author sarvesh 21May2022 */
+}
+
+@media (min-width: 840px) and (max-width: 1259px) {
+  #container_product_select {
+    grid-template-columns: repeat(2, 260px);
+  }
+}
+
+@media (min-width: 1260px) {
+  #container_product_select {
+    grid-template-columns: repeat(3, 260px);
+  }
+}
+
+.box {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  /*padding: 20px;*/
+  box-sizing: border-box;
+  text-align: center;
+  background: linear-gradient(0deg, #202020, #464646);
+  /*border-top-left-radius: 150px;*/
+  /*border-top-right-radius: 150px;*/
+  /*border-bottom-left-radius: 150px;*/
+  /*border-bottom-right-radius: 150px;*/
+  border: 3px solid #ffc98e;
+  box-shadow: 0 0 0 6px #323232, 0 0 0 10px #ffc98e, 0 0 0 20px #323232, 0 10px 150px rgba(0, 0, 0, 1);
+  transition: 0.5s;
+}
+
+#product_image{
+margin-top:20px;
+width: 200px;
+}
+@media (min-width: 840px) {
+  #product_image:hover {
+    transform: scale(1.1);
+  }
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box .title .fa {
+  margin-top: 20px;
+  font-size: 60px;
+  color: #ffc98e;
+}
+
+.box .title h2 {
+  color: #fff;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.box .price h4 {
+  font-size: 60px;
+  color: #ffc98e;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.box .option ul {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.box .option ul li {
+  color: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.box .option ul li:last-child {
+  border-bottom: none;
+}
+
+.box .btn {
+  display: inline-block;
+  background: #ffc98e;
+  color: #262626;
+  font-weight: bold;
+  padding: 10px 30px;
+  margin: 20px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+/******************** END product end auther @YUVRAJ 18052022 ***********************************/
+/*******************  START section trangle design top and bottom css auther @YUVRAJ 18052022 *****************/
+section {
+    position:relative;
+    padding:0;
+    color:#FFF;
+    text-align:center;
+}
+section::before,section::after {
+    position:absolute;
+    content: '';
+}
+
+/* Separators Styles */
+.ss-style-top::before {
+    left:0;
+    width:100%;
+    height:30px;
+    -webkit-background-size:25px 100%;
+    -moz-background-size:25px 100%;
+    -o-background-size:25px 100%;
+    background-size:25px 100%;
+    top:0;
+    background-image:linear-gradient(315deg,#FFF 50%,transparent 50%),linear-gradient(45deg,#FFF 50%,transparent 50%);
+    margin-top:-30px;
+    z-index:100;
+}
+.ss-style-bottom::before {
+    left:0;
+    width:100%;
+    height:3px;
+    -webkit-background-size:25px 100%;
+    -moz-background-size:25px 100%;
+    -o-background-size:25px 100%;
+    background-size:25px 100%;
+    top:0;
+    /* Code COMMENTED BY SARVESH 19MAY2022 background-image:linear-gradient(583deg,#FFF 50%,transparent 50%),linear-gradient(136deg,#FFF 50%,transparent 50%);
+	background-color: #fff; */
+    margin-top:41px;
+    z-index: 100;
+}
+/*******************  END section trangle design top and bottom css auther @YUVRAJ 18052022 *****************/
+
+/* start code for footer and Contact author @Sarvesh sataye 20May2022 */
+
+ .footerul li{
+	list-style-type: none;
+    color: #5d5a5a;
+    font-size: 18px;
+    font-family: calibri;
+    padding: 4px 0px;
+ }
+ .footerul li a{
+    color: #5d5a5a;
+    font-size: 18px;
+    font-family: calibri;
+    padding: 4px 0px;
+ }
+ .footerHeader{
+		font-size: 31px;
+		color: red;
+		padding: 12px 0px;
+		font-family: calibri;
+ }
+ .footerPhoneAdd{
+	font-size: 18px;font-weight: 600;color: #898383;margin-bottom: 2px;font-family: calibri;
+ }
+ .footerPhoneAddContent{
+	font-family: calibri;
+	font-size: 15px;
+	color: #000000;
+ }
+ .footerPaddingLeft{
+	 padding-left: 50px;
+ }
+ @media screen and (max-width: 990px) {
+	.footerPaddingLeft {
+		padding-left: 15px;
+	}
+	.responsive-contact{
+		margin-bottom: 14px;
+	}
+  }
+ /* start end for footer author @Sarvesh sataye 20May2022 */

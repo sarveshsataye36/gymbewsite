@@ -1,0 +1,6 @@
+navbar2.php :- added data-toggle links in about then product & contact link pass
+aboutus.php
+contact.php include in index.php
+index.php:- added models classes
+new id (#featuredproduct) added in dgnutrition.php
+style.css changes made
